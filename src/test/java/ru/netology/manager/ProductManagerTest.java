@@ -30,7 +30,7 @@ public class ProductManagerTest {
 
     @Test
     public void shouldSearchByBook() {
-        Product[] actual = manager.searhBy("Murfy");
+        Product[] actual = manager.searchBy("Murfy");
         Product[] expected = new Product[]{book1, book3};
 
         assertArrayEquals(expected, actual);
@@ -38,7 +38,7 @@ public class ProductManagerTest {
 
     @Test
     public void shouldSearchByPhone() {
-        Product[] actual = manager.searhBy("Iphone");
+        Product[] actual = manager.searchBy("Iphone");
         Product[] expected = new Product[]{phone1};
 
         assertArrayEquals(expected, actual);
@@ -48,7 +48,7 @@ public class ProductManagerTest {
     void shouldFindExistingBookByName() {
         String nameBook = "Cinderella";
         Product[] expected = new Product[]{book3};
-        Product[] actual = manager.searhBy(nameBook);
+        Product[] actual = manager.searchBy(nameBook);
 
         assertArrayEquals(expected, actual);
     }
@@ -57,7 +57,7 @@ public class ProductManagerTest {
     void shouldFindExistingPhoneByName() {
         String namePhone = "Samsung Galazy Z";
         Product[] expected = new Product[]{phone2};
-        Product[] actual = manager.searhBy(namePhone);
+        Product[] actual = manager.searchBy(namePhone);
 
         assertArrayEquals(expected, actual);
     }
@@ -66,9 +66,18 @@ public class ProductManagerTest {
     void shouldFindExistingPhoneByCreator() {
         String creatorPhone = "Iphone";
         Product[] expected = new Product[]{phone1};
-        Product[] actual = manager.searhBy(creatorPhone);
+        Product[] actual = manager.searchBy(creatorPhone);
         assertArrayEquals(expected, actual);
 
     }
 
+
+    @Test
+    void shouldSearchByWhenMissingProduct() {
+        Product[] actual = manager.searchBy("нет такого продукта");
+        Product[] expected = new Product[]{};
+        assertArrayEquals(expected, actual);
+
+
+    }
 }
