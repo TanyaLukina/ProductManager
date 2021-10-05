@@ -22,12 +22,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>16.0.3</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.20</version>
@@ -78,15 +72,13 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <excludes>
-                        <exclude>**/*PurchaseItem.class</exclude>
-                    </excludes>
                     <rules>
                         <rule>
                             <limits>
                                 <limit>
                                     <counter>BRANCH</counter>
                                     <value>COVEREDCOUNT</value>
+                                    <minimum>100%</minimum>
                                 </limit>
                             </limits>
                         </rule>
